@@ -18,7 +18,12 @@
             color: white;
             line-height: 1.8;
         }
-
+<div style="text-align:left; padding:15px;">
+    <button id="langBtn" onclick="changeLanguage()"
+    style="padding:10px 20px; background:#00bcd4; border:0; border-radius:8px; cursor:pointer;">
+        English
+    </button>
+</div>
         header {
             background: #111c32;
             padding: 22px;
@@ -99,7 +104,73 @@
         }
     </style>
 </head>
+<script>
+let english = false;
 
+function changeLanguage() {
+    english = !english;
+
+    document.documentElement.lang = english ? "en" : "ar";
+    document.documentElement.dir = english ? "ltr" : "rtl";
+
+    const texts = english ? [
+        "Home", "About Me", "My Interests", "My Projects",
+        "Welcome to My Digital World",
+        "I'm Baz-oo. I learn, explore and build my future in technology.",
+        "Discover More", "Who Am I?",
+        "Hello, I'm Baz-oo. I love technology and learning new things. I believe knowledge and determination lead to success.",
+        "My Interests", "Cybersecurity",
+        "I learn to protect systems and discover vulnerabilities ethically.",
+        "Programming", "I develop my skills in creating websites and applications.",
+        "Exploration and Learning",
+        "I love gaining knowledge and exploring new experiences.",
+        "My Projects", "My First Personal Website",
+        "This is my first project in web development.",
+        "© 2026 Baz-oo - All rights reserved",
+        "Made with passion and love for technology ❤️"
+    ] : [
+        "الرئيسية", "من أنا", "اهتماماتي", "مشاريعي",
+        "مرحباً بك في عالمي الرقمي",
+        "أنا Baz-oo، أتعلم وأكتشف وأبني مستقبلي في عالم التكنولوجيا.",
+        "اكتشف المزيد", "من أنا؟",
+        "مرحباً، أنا Baz-oo. أحب التكنولوجيا والتعلم واكتشاف الأشياء الجديدة. أؤمن بأن المعرفة والإصرار هما طريق النجاح.",
+        "اهتماماتي", "الأمن السيبراني",
+        "أتعلم حماية الأنظمة واكتشاف الثغرات بطريقة أخلاقية.",
+        "البرمجة", "أطور مهاراتي في إنشاء المواقع والتطبيقات.",
+        "الاستكشاف والتعلم",
+        "أحب اكتساب المعرفة وخوض تجارب جديدة.",
+        "مشاريعي", "موقعي الشخصي الأول",
+        "هذا أول مشروع لي في عالم تطوير الويب.",
+        "© 2026 Baz-oo - جميع الحقوق محفوظة",
+        "صُنع بشغف وحب للتكنولوجيا ❤️"
+    ];
+
+    const selectors = [
+        "nav a:nth-child(1)", "nav a:nth-child(2)",
+        "nav a:nth-child(3)", "nav a:nth-child(4)",
+        ".hero h2", ".hero p", ".hero .button",
+        "#about h2", "#about .card p",
+        "#interests h2",
+        "#interests .card:nth-of-type(1) h3",
+        "#interests .card:nth-of-type(1) p",
+        "#interests .card:nth-of-type(2) h3",
+        "#interests .card:nth-of-type(2) p",
+        "#interests .card:nth-of-type(3) h3",
+        "#interests .card:nth-of-type(3) p",
+        "#projects h2", "#projects .card h3",
+        "#projects .card p",
+        "footer p:nth-child(1)", "footer p:nth-child(2)"
+    ];
+
+    selectors.forEach((selector, index) => {
+        const element = document.querySelector(selector);
+        if (element) element.textContent = texts[index];
+    });
+
+    document.getElementById("langBtn").textContent =
+        english ? "العربية" : "English";
+}
+</script>
 <body>
 
 <header>
