@@ -1,190 +1,185 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Baz-oo | موقعي الشخصي</title>
+
+    <title>Baz-oo | My Personal Website</title>
 
     <style>
         * {
-            box-sizing: border-box;
             margin: 0;
             padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
         }
 
         body {
             font-family: Arial, sans-serif;
-            background: #0b1120;
-            color: white;
-         <div style="text-align:left; padding:15px;">
-    <button id="langBtn" onclick="changeLanguage()">
-        English
-    </button>
-</div>   line-height: 1.8;
-        }<div style="text-align:left; padding:15px;">
-    <button id="langBtn" onclick="changeLanguage()"
-    style="padding:10px 20px; background:#00bcd4; border:0; border-radius:8px; cursor:pointer;">
-        English
-    </button>
-</div>
-<div style="text-align:left; padding:15px;">
-    <button id="langBtn" onclick="changeLanguage()"
-    style="padding:10px 20px; background:#00bcd4; border:0; border-radius:8px; cursor:pointer;">
-        English
-    </button>
-</div>
-        header {
-            background: #111c32;
-            padding: 22px;
-            text-align: center;
-            border-bottom: 2px solid #00bcd4;
+            background: #080f1e;
+            color: #ffffff;
+            line-height: 1.8;
         }
 
-        header h1 {
+        header {
+            background: #101c30;
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            border-bottom: 1px solid #164e63;
+        }
+
+        .logo {
             color: #00d4ff;
-            font-size: 38px;
+            font-size: 30px;
+            font-weight: bold;
         }
 
         nav {
-            margin-top: 12px;
+            display: flex;
+            gap: 18px;
+            flex-wrap: wrap;
         }
 
         nav a {
             color: white;
             text-decoration: none;
-            margin: 10px;
         }
 
         nav a:hover {
             color: #00d4ff;
         }
 
-        .hero {
-            text-align: center;
-            padding: 75px 20px;
+        .language-button {
+            background: #00d4ff;
+            color: #08111f;
+            border: none;
+            padding: 10px 18px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: bold;
         }
 
-        .hero h2 {
-            font-size: 32px;
+        .hero {
+            text-align: center;
+            padding: 100px 20px;
+            background: linear-gradient(135deg, #101c30, #082b3b);
+        }
+
+        .hero h1 {
+            font-size: 42px;
             color: #00d4ff;
             margin-bottom: 15px;
         }
 
         .hero p {
+            font-size: 19px;
             color: #cbd5e1;
-            font-size: 18px;
+            max-width: 650px;
+            margin: auto;
         }
 
         .button {
             display: inline-block;
             margin-top: 25px;
             padding: 12px 28px;
-            background: #00bcd4;
-            color: #07111f;
+            background: #00d4ff;
+            color: #08111f;
             text-decoration: none;
             border-radius: 8px;
             font-weight: bold;
         }
 
         section {
-            padding: 40px 20px;
+            padding: 65px 20px;
             text-align: center;
         }
 
         section h2 {
             color: #00d4ff;
-            margin-bottom: 20px;
+            font-size: 30px;
+            margin-bottom: 25px;
+        }
+
+        .card-container {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
+            max-width: 1100px;
+            margin: auto;
         }
 
         .card {
-            background: #16243b;
+            background: #14243a;
+            border: 1px solid #1e4058;
             padding: 25px;
-            margin: 15px auto;
-            max-width: 550px;
-            border-radius: 12px;
+            border-radius: 14px;
+            width: 300px;
+            transition: 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-7px);
+            border-color: #00d4ff;
+        }
+
+        .card h3 {
+            color: #00d4ff;
+            margin-bottom: 12px;
+        }
+
+        .card p {
+            color: #cbd5e1;
         }
 
         footer {
-            background: #111c32;
+            background: #101c30;
             text-align: center;
-            padding: 20px;
+            padding: 25px;
             color: #94a3b8;
-            margin-top: 30px;
+            border-top: 1px solid #164e63;
+        }
+
+        @media (max-width: 650px) {
+            header {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            nav {
+                justify-content: center;
+            }
+
+            .hero h1 {
+                font-size: 30px;
+            }
+
+            .card {
+                width: 100%;
+                max-width: 350px;
+            }
         }
     </style>
 </head>
-<script>
-let english = false;
 
-function changeLanguage() {
-    english = !english;
-
-    document.documentElement.lang = english ? "en" : "ar";
-    document.documentElement.dir = english ? "ltr" : "rtl";
-
-    const texts = english ? [
-        "Home", "About Me", "My Interests", "My Projects",
-        "Welcome to My Digital World",
-        "I'm Baz-oo. I learn, explore and build my future in technology.",
-        "Discover More", "Who Am I?",
-        "Hello, I'm Baz-oo. I love technology and learning new things. I believe knowledge and determination lead to success.",
-        "My Interests", "Cybersecurity",
-        "I learn to protect systems and discover vulnerabilities ethically.",
-        "Programming", "I develop my skills in creating websites and applications.",
-        "Exploration and Learning",
-        "I love gaining knowledge and exploring new experiences.",
-        "My Projects", "My First Personal Website",
-        "This is my first project in web development.",
-        "© 2026 Baz-oo - All rights reserved",
-        "Made with passion and love for technology ❤️"
-    ] : [
-        "الرئيسية", "من أنا", "اهتماماتي", "مشاريعي",
-        "مرحباً بك في عالمي الرقمي",
-        "أنا Baz-oo، أتعلم وأكتشف وأبني مستقبلي في عالم التكنولوجيا.",
-        "اكتشف المزيد", "من أنا؟",
-        "مرحباً، أنا Baz-oo. أحب التكنولوجيا والتعلم واكتشاف الأشياء الجديدة. أؤمن بأن المعرفة والإصرار هما طريق النجاح.",
-        "اهتماماتي", "الأمن السيبراني",
-        "أتعلم حماية الأنظمة واكتشاف الثغرات بطريقة أخلاقية.",
-        "البرمجة", "أطور مهاراتي في إنشاء المواقع والتطبيقات.",
-        "الاستكشاف والتعلم",
-        "أحب اكتساب المعرفة وخوض تجارب جديدة.",
-        "مشاريعي", "موقعي الشخصي الأول",
-        "هذا أول مشروع لي في عالم تطوير الويب.",
-        "© 2026 Baz-oo - جميع الحقوق محفوظة",
-        "صُنع بشغف وحب للتكنولوجيا ❤️"
-    ];
-
-    const selectors = [
-        "nav a:nth-child(1)", "nav a:nth-child(2)",
-        "nav a:nth-child(3)", "nav a:nth-child(4)",
-        ".hero h2", ".hero p", ".hero .button",
-        "#about h2", "#about .card p",
-        "#interests h2",
-        "#interests .card:nth-of-type(1) h3",
-        "#interests .card:nth-of-type(1) p",
-        "#interests .card:nth-of-type(2) h3",
-        "#interests .card:nth-of-type(2) p",
-        "#interests .card:nth-of-type(3) h3",
-        "#interests .card:nth-of-type(3) p",
-        "#projects h2", "#projects .card h3",
-        "#projects .card p",
-        "footer p:nth-child(1)", "footer p:nth-child(2)"
-    ];
-
-    selectors.forEach((selector, index) => {
-        const element = document.querySelector(selector);
-        if (element) element.textContent = texts[index];
-    });
-
-    document.getElementById("langBtn").textContent =
-        english ? "العربية" : "English";
-}
-</script>
 <body>
 
-<header>
-    <h1>Baz-oo</h1>
-    <nav>
-        <a href="#home">الرئيسية</a>
-        <a href="#about">من أنا</a>
-        <a href="#interests">اهتماماتي</a>
+    <header>
+
+        <div class="logo">Baz-oo</div>
+
+        <nav>
+            <a href="#home" data-ar="الرئيسية" data-en="Home">الرئيسية</a>
+
+            <a href="#about" data-ar="من أنا" data-en="About Me">من أنا</a>
+
+            <a href="#interests" data-ar="اهتماماتي" data-en="Interests">اهتماماتي</a>
+
+            <a href="#projects" data-ar="مشاري
